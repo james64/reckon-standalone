@@ -17,6 +17,7 @@ object reckon extends ScalaModule with PublishModule {
 
   def artifactId = "reckon-standalone"
   def publishVersion = "0.0.1"
+  def mainClass = Some("james64.ReckonStandalone")
   def pomSettings = PomSettings(
     description = "Simple wrapper for Reckon by ajoberstar",
     organization = "com.github.james64",
