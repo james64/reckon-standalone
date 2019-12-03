@@ -31,4 +31,12 @@ object ReckonStandalone extends CaseApp[Options] {
     .build()
 }
 
-case class Options(scope: Option[String], stage: Option[String], gitDir: String = ".git")
+@AppName("Reckon-standalone")
+case class Options(
+  @HelpMessage("Optional scope to pass to reckoner. One of \"major\", \"minor\", \"patch\". Defaults to \"minor\".")
+  scope: Option[String],
+  @HelpMessage("Optional stage to pass to reckoner. Defaults to \"rc\".")
+  stage: Option[String],
+  @HelpMessage("Location of .git directory. Defaults to \".git\"")
+  gitDir: String = ".git"
+)
