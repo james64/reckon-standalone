@@ -9,7 +9,8 @@ object reckon extends ScalaModule with PublishModule {
     ivy"org.ajoberstar.reckon:reckon-core:0.12.0",
     ivy"com.github.zafarkhaja:java-semver:0.9.0",
     ivy"org.apache.commons:commons-lang3:3.9",
-    ivy"com.github.alexarchambault::case-app:2.0.0-M9"
+    ivy"com.github.alexarchambault::case-app:2.0.0-M9",
+    ivy"org.slf4j:slf4j-nop:1.7.29"
   )
   def repositories = super.repositories ++ Seq(
     MavenRepository("https://jcenter.bintray.com/")
