@@ -1,6 +1,6 @@
 # reckon-standalone
 
-This is just a simple wrapper around reckon-core module of [ajoberstar/rekon](https://github.com/ajoberstar/reckon).
+This is just a simple wrapper around reckon-core module of [ajoberstar/reckon](https://github.com/ajoberstar/reckon).
 It allows one to use git tag based version inference outside of any particular (build) tool.
 
 ```
