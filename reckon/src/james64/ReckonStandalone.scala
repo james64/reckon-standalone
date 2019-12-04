@@ -9,7 +9,7 @@ import org.eclipse.jgit.lib.Repository
 
 object ReckonStandalone extends CaseApp[Options] {
 
-  def run(options: Options, arg: RemainingArgs): Unit = println {
+  def run(options: Options, arg: RemainingArgs): Unit = print {
     Reckoner.builder()
       .git(localGit(options.gitDir))
       .scopeCalc(_ => Optional.ofNullable(options.scope.orNull))
