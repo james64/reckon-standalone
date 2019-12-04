@@ -3,10 +3,9 @@ package james64
 import java.util.Optional
 
 import caseapp._
-
 import org.ajoberstar.reckon.core.Reckoner
+import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.lib.Repository
-import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 
 object ReckonStandalone extends CaseApp[Options] {
 
@@ -22,9 +21,7 @@ object ReckonStandalone extends CaseApp[Options] {
 
   private def dummyStages(inputStage: Option[String]) : Seq[String] = (inputStage.toSet + "rc").toList
 
-  private def localGit(gitDir: String) : Repository = new FileRepositoryBuilder()
-    .setGitDir(new java.io.File(gitDir))
-    .build()
+  private def localGit(gitDir: String) : Repository = Git.open(new java.io.File(gitDir)).getRepository
 }
 
 @AppName("Reckon-standalone")
