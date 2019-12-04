@@ -15,16 +15,12 @@ object ReckonStandalone extends CaseApp[Options] {
       .git(localGit(options.gitDir))
       .scopeCalc(_ => Optional.ofNullable(options.scope.orNull))
       .stageCalc((_,_) => Optional.ofNullable(options.stage.orNull))
-      .stages(dummyStage(options.stage))
+      .stages(dummyStages(options.stage):_*)
       .build
       .reckon
   }
 
-  private def dummyStage(input: Option[String]) : String = input match {
-    case None => "rc"
-    case Some("final") => "rc"
-    case Some(s) => s
-  }
+  private def dummyStages(inputStage: Option[String]) : Seq[String] = (inputStage.toSet + "rc").toList
 
   private def localGit(gitDir: String) : Repository = new FileRepositoryBuilder()
     .setGitDir(new java.io.File(gitDir))
