@@ -18,14 +18,25 @@ Usage: reckon-standalone [options]
         Location of .git directory. Defaults to ".git"
 ```
 
+# Example usage
+
 ```bash
+# download coursier
 curl -Lo coursier https://git.io/coursier-cli && chmod +x coursier
+
+# infer version
 version=$(coursier launch \
   -r 'https://jcenter.bintray.com/' \
   com.github.james64:reckon-standalone:0.0.1 \
   -- --scope=minor --stage=final)
+
+# create tag
 git tag $version
-build_cmd
+
+# run release
+...
+
+# push/remove tag
 if [[ "$?" -eq 0 ]]; then
     git push --tags
 else
